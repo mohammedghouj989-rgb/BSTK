@@ -18,9 +18,13 @@ def main_menu():
         choice = input("Select an option: ")
         
         if choice == '1':
-            print("\nStarting Port Scanner...")
-            # Make sure scanner.py is in the same folder
-            os.system('python scanner.py')
+            target_ip = input("\nEnter Target IP (or press Enter for 127.0.0.1): ")
+            
+            if not target_ip.strip():
+                target_ip = "127.0.0.1"
+                
+            print(f"\nStarting Port Scanner on {target_ip}...")
+            os.system(f'python scanner.py {target_ip}')
             input("\nPress Enter to return to menu...")
             
         elif choice == '2':
